@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {StyleSheet} from 'react-native'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { withTheme } from '../theme';
+import Box from './Box';
 
-import Box from './Box'
-import {withTheme} from '../theme'
 
 
 class Paper extends React.Component {
@@ -14,7 +14,7 @@ class Paper extends React.Component {
 
     render() {
 
-        const {padding, children, style, styles} = this.props
+        const {padding, children, style, styles, ...props} = this.props
 
         const _styles = []
 
@@ -26,7 +26,7 @@ class Paper extends React.Component {
         _styles.push(style)
 
         return (
-            <Box ref="root" style={_styles} column>
+            <Box ref="root" style={_styles} column {...props}>
                 {children}
             </Box>
         )

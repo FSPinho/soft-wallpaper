@@ -2,10 +2,14 @@ package com.cytech.grioty;
 
 import android.app.Application;
 
+import com.cytech.grioty.wallpaper.WallpaperManagerPackage;
 import com.facebook.CallbackManager;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.ReactApplication;
+
+import fr.greweb.reactnativeviewshot.RNViewShotPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
+
 import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
@@ -44,8 +48,9 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-            new RNGoogleSigninPackage(),
-            new ReactNativeOneSignalPackage(),
+                    new RNViewShotPackage(),
+                    new RNGoogleSigninPackage(),
+                    new ReactNativeOneSignalPackage(),
                     new LottiePackage(),
                     new RNLanguagesPackage(),
                     new FBSDKPackage(mCallbackManager),
@@ -53,7 +58,8 @@ public class MainApplication extends Application implements ReactApplication {
                     new VectorIconsPackage(),
                     new RNFirebasePackage(),
                     new RNFirebaseAuthPackage(),
-                    new RNFirebaseDatabasePackage()
+                    new RNFirebaseDatabasePackage(),
+                    new WallpaperManagerPackage()
             );
         }
 

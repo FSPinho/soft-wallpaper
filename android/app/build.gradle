@@ -91,6 +91,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-view-shot')
     compile project(':react-native-google-signin')
     compile project(':react-native-onesignal')
     compile project(':lottie-react-native')

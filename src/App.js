@@ -6,26 +6,7 @@ import RNLanguages from 'react-native-languages';
 import OneSignal from 'react-native-onesignal';
 import { RootNavigator } from './navigation';
 import { i18n } from './services';
-import DataBase from "./services/DataBase";
 import { ThemeProvider } from './theme';
-
-
-
-
-BackgroundTask.define(async () => {
-
-    try {
-
-        // const i18n.t('')
-
-    } catch (err) {
-        /** ... */
-    }
-
-    BackgroundTask.finish()
-
-})
-
 
 class App extends React.Component {
 
@@ -67,7 +48,7 @@ class App extends React.Component {
 
         try {
             await AsyncStorage.setItem("OneSignal:userId", userId)
-            await DataBase.updateCurrentUserProfileAttribute('oneSignalDeviceId', userId)
+            // await DataBase.updateCurrentUserProfileAttribute('oneSignalDeviceId', userId)
         } catch (err) {
             /** ... */
         }

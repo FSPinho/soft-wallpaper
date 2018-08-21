@@ -3,16 +3,12 @@ import { translate } from 'react-i18next';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { StackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import { AddBreak, AddMeeting, AddParticipant, Meetings, Profile, Schedule } from '../pages';
+import { Loved, WallpaperGenerator } from '../pages';
 import { withTheme } from '../theme';
 
 const ROUTES = {
-    SCHEDULE: 'SCHEDULE',
-    ADD_BREAK: 'ADD BREAK',
-    MEETINGS: 'MEETINGS',
-    ADD_MEETING: 'ADD MEETING',
-    ADD_PARTICIPANT: 'ADD PARTICIPANT',
-    PROFILE: 'PROFILE',
+    WALLPAPER_GENERATOR: 'WALLPAPER-GENERATOR',
+    LOVED: 'LOVED',
 }
 
 class Navigator extends Component {
@@ -23,18 +19,12 @@ class Navigator extends Component {
         const { theme, t } = props
 
         this.Navigator = createMaterialBottomTabNavigator({
-            [ROUTES.MEETINGS]: StackNavigator({
-                [ROUTES.MEETINGS]: { screen: Meetings, title: t('tab-' + ROUTES.MEETINGS.toLowerCase()) },
-                [ROUTES.ADD_MEETING]: { screen: AddMeeting, title: t('tab-' + ROUTES.ADD_MEETING.toLowerCase()) },
-                [ROUTES.ADD_PARTICIPANT]: { screen: AddParticipant, title: t('tab-' + ROUTES.ADD_PARTICIPANT.toLowerCase()) },
+            [ROUTES.WALLPAPER_GENERATOR]: StackNavigator({
+                [ROUTES.WALLPAPER_GENERATOR]: { screen: WallpaperGenerator, title: t('tab-' + ROUTES.WALLPAPER_GENERATOR.toLowerCase()) },
             }),
-
-            [ROUTES.SCHEDULE]: StackNavigator({
-                [ROUTES.SCHEDULE]: { screen: Schedule },
-                [ROUTES.ADD_BREAK]: { screen: AddBreak },
+            [ROUTES.LOVED]: StackNavigator({
+                [ROUTES.LOVED]: { screen: Loved, title: t('tab-' + ROUTES.LOVED.toLowerCase()) },
             }),
-            
-            [ROUTES.PROFILE]: { screen: Profile, title: t('tab-' + ROUTES.PROFILE.toLowerCase()) },
         }, {
                 lazy: false,
                 shifting: true,
@@ -45,18 +35,14 @@ class Navigator extends Component {
                     let iconFocusedName;
                     let tabBarColor;
 
-                    if (routeName === ROUTES.SCHEDULE) {
-                        iconFocusedName = 'ios-time'
-                        iconName = 'ios-time-outline'
+                    if (routeName === ROUTES.WALLPAPER_GENERATOR) {
+                        iconFocusedName = 'ios-images'
+                        iconName = 'ios-images-outline'
                         tabBarColor = theme.palette.Accent.A200.color
-                    } else if (routeName === ROUTES.MEETINGS) {
-                        iconFocusedName = 'ios-people'
-                        iconName = 'ios-people-outline'
-                        tabBarColor = theme.palette.Primary['500'].color
-                    } else {
-                        iconFocusedName = 'ios-person'
-                        iconName = 'ios-person-outline'
-                        tabBarColor = theme.palette.Pink['500'].color
+                    } else if (routeName === ROUTES.LOVED) {
+                        iconFocusedName = 'ios-heart'
+                        iconName = 'ios-heart-outline'
+                        tabBarColor = theme.palette.Accent.A200.color
                     }
 
                     return {

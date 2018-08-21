@@ -327,7 +327,7 @@ export default {
     paper: {
         borderRadius: 4,
         backgroundColor: palette.White['500'].color,
-        elevation: 0.3
+        elevation: 1
     },
     paperTextPrimary: {
         color: palette.Black.Primary.color,
