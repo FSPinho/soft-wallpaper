@@ -1,7 +1,6 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { AsyncStorage } from 'react-native';
-import BackgroundTask from 'react-native-background-task';
 import RNLanguages from 'react-native-languages';
 import OneSignal from 'react-native-onesignal';
 import { RootNavigator } from './navigation';
@@ -17,10 +16,6 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        BackgroundTask.schedule()
-
-        await this.doCheckBackgroundServiceStatus()
-
         OneSignal.addEventListener('opened', this.onNotificationOpened)
         OneSignal.addEventListener('ids', this.onIds)
         OneSignal.configure()
@@ -51,21 +46,6 @@ class App extends React.Component {
             // await DataBase.updateCurrentUserProfileAttribute('oneSignalDeviceId', userId)
         } catch (err) {
             /** ... */
-        }
-    }
-
-    async doCheckBackgroundServiceStatus() {
-        const status = await BackgroundTask.statusAsync()
-
-        if (status.available) {
-            console.log("App:doCheckBackgroundServiceStatus - Running!")
-        } else {
-            const reason = status.unavailableReason
-            if (reason === BackgroundTask.UNAVAILABLE_DENIED) {
-                console.log("App:doCheckBackgroundServiceStatus - Unavailable denied!")
-            } else if (reason === BackgroundTask.UNAVAILABLE_RESTRICTED) {
-                console.log("App:doCheckBackgroundServiceStatus - Unavailable restricted!")
-            }
         }
     }
 

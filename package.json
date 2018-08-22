@@ -49,5 +49,8 @@
     "react-navigation": "^2.9.3",
     "react-navigation-header-buttons": "^0.0.7",
     "react-navigation-material-bottom-tabs": "^0.3.0"
+  },
+  "rnpm":{
+    "assets":["./assets/fonts/"]
   }
 }
