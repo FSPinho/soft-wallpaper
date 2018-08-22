@@ -1,5 +1,9 @@
 {
   "common": {
-    
+    "wallpaper-generator-screen-title": "Papeis de Parede",
+    "watch-video": "Veja um vídeo para ver mais papeis de parede",
+    "wallpaper-set-success-message": "Papel de parede atualizado!",
+    "wallpaper-set-error-message": "Não foi possível atualizar seu papel de parede!",
+    "watch-thanks": "Thanks for watching =)"
   }
 }

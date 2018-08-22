@@ -1,4 +1,4 @@
-const palette = {
+export const palette = {
     'Red': {
         '50': {'color': '#FFEBEE', 'text': 'black'},
         '100': {'color': '#FFCDD2', 'text': 'black'},
@@ -321,8 +321,8 @@ export default {
     palette: {
         ...palette,
 
-        Primary: palette.DeepPurple,
-        Accent: palette.Purple,
+        Primary: palette.BlueGrey,
+        Accent: palette.Pink,
     },
     paper: {
         borderRadius: 4,

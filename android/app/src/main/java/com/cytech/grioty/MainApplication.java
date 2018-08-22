@@ -6,6 +6,7 @@ import com.cytech.grioty.wallpaper.WallpaperManagerPackage;
 import com.facebook.CallbackManager;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.ReactApplication;
+import com.sbugert.rnadmob.RNAdMobPackage;
 
 import fr.greweb.reactnativeviewshot.RNViewShotPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
@@ -48,6 +49,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            new RNAdMobPackage(),
                     new RNViewShotPackage(),
                     new RNGoogleSigninPackage(),
                     new ReactNativeOneSignalPackage(),

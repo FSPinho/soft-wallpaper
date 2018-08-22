@@ -1,5 +1,9 @@
 {
   "common": {
-    
+    "wallpaper-generator-screen-title": "Wallpapers",
+    "watch-video": "Watch a video to see more wallpapers",
+    "wallpaper-set-success-message": "Wallpaper updated!",
+    "wallpaper-set-error-message": "Can't update wallpaper!",
+    "watch-thanks": "Thanks for watching =)"
   }
 }

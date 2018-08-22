@@ -1,6 +1,6 @@
-import React from 'react'
-import {StyleSheet, View} from 'react-native'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
 export default class Box extends React.Component {
 
@@ -137,8 +137,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     fit: {
-        width: '100%',
-        height: '100%',
+        flex: 1,
     },
     fitAbsolute: {
         position: 'absolute',

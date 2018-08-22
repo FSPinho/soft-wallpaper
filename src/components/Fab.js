@@ -18,65 +18,34 @@ class Fab extends React.Component {
         }
     }
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.animationInterval = setInterval(() => {
-                if (this.props.animated)
-                    this.doAnimateFab()
-            }, 15000)
-            if (this.props.animated)
-                this.doAnimateFab()
-        }, 3500)
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.animationInterval)
+    componentWillReceiveProps({ animated }) {
+        if (!this.props.animated && animated)
+            this.doAnimateFab()
+        else if (this.props.animated && !animated)
+            this.doHideFabContent()
     }
 
     doAnimateFab = () => {
-        Animated.sequence([
+        Animated.parallel([
             Animated.timing(
-                this.state.fabBounceTranslation,
-                { toValue: 1, duration: 300, easing: Easing.bezier(.8, .2, .2, .8) }
+                this.state.fabMaxWidth,
+                { toValue: 1, duration: 800, easing: Easing.bezier(.8, .2, .2, .8) }
             ),
-            Animated.timing(
-                this.state.fabBounceTranslation,
-                { toValue: -1, duration: 300, easing: Easing.bezier(.8, .2, .2, .8) }
-            ),
-            Animated.timing(
-                this.state.fabBounceTranslation,
-                { toValue: 1, duration: 300, easing: Easing.bezier(.8, .2, .2, .8) }
-            ),
-            Animated.timing(
-                this.state.fabBounceTranslation,
-                { toValue: 0, duration: 300, easing: Easing.bezier(.8, .2, .2, .8) }
-            ),
-            Animated.parallel([
+            Animated.sequence([
                 Animated.timing(
-                    this.state.fabMaxWidth,
-                    { toValue: 1, duration: 800, easing: Easing.bezier(.8, .2, .2, .8) }
-                ),
-                Animated.sequence([
-                    Animated.timing(
-                        this.state.iconOpacity,
-                        { toValue: 0, duration: 400 }
-                    ),
-                    Animated.timing(
-                        this.state.iconOpacity,
-                        { toValue: 1, duration: 400 }
-                    ),
-                ])
-            ]),
-            Animated.parallel([
-                Animated.timing(
-                    this.state.fabMaxWidth,
-                    { toValue: 1, duration: 3500 }
+                    this.state.iconOpacity,
+                    { toValue: 0, duration: 400 }
                 ),
                 Animated.timing(
                     this.state.iconOpacity,
-                    { toValue: 1, duration: 3500 }
+                    { toValue: 1, duration: 400 }
                 ),
-            ]),
+            ])
+        ]).start()
+    }
+
+    doHideFabContent = () => {
+        Animated.sequence([
             Animated.parallel([
                 Animated.timing(
                     this.state.fabMaxWidth,
@@ -92,7 +61,7 @@ class Fab extends React.Component {
                         { toValue: 0, duration: 400 }
                     ),
                 ])
-            ])
+            ]),
         ]).start()
     }
 
@@ -154,9 +123,17 @@ class Fab extends React.Component {
                                 paddingLeft: 16,
                                 paddingRight: 16
                             }}>
-                            <Text numberOfLines={1} style={{ color: theme.palette.White.Primary.color }}>
-                                {animatedText}
-                            </Text>
+                            <Box centralize>
+                                <Text numberOfLines={2}
+                                    style={{
+                                        color: theme.palette.White.Primary.color,
+                                        fontSize: 12,
+                                        maxWidth: Dimensions.get('window').width - 64 - 56 - 16
+                                    }}>
+                                    {animatedText}
+                                </Text>
+                                <Icon style={{ marginLeft: 16 }} name={icon} size={23} color={theme.palette.White.Primary.color} />
+                            </Box>
                         </Animated.View>
                     </Box>
                 </Touchable>

@@ -33,6 +33,7 @@
     "react-i18next": "^7.6.0",
     "react-native": "0.55.4",
     "react-native-action-button": "^2.8.4",
+    "react-native-admob": "^2.0.0-beta.5",
     "react-native-background-task": "^0.2.1",
     "react-native-dialog": "^3.3.0",
     "react-native-fab": "^1.0.6",
@@ -50,7 +51,9 @@
     "react-navigation-header-buttons": "^0.0.7",
     "react-navigation-material-bottom-tabs": "^0.3.0"
   },
-  "rnpm":{
-    "assets":["./assets/fonts/"]
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }
