@@ -230,7 +230,6 @@ class WallpaperGenerator extends React.Component {
 
                 AdMobRewarded.addEventListener('rewarded', () => {
                     Alert.showLongText(this.props.t('watch-thanks'))
-
                     this.asyncSetState({ themeChangeCount: 0, themeLimitReached: false })
                 });
 
